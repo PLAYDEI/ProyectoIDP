@@ -1,0 +1,27 @@
+<!-- Se extiende la base.html -->
+{% extends 'base.html'%}
+
+<!-- Contenido de la pagina wjjj -->
+{% block content %}
+
+<div class="container-fluid mt-4">
+    <div class="row">
+        <!-- Menú de Filtros -->
+        <div class="col-md-2">
+            <div class="card p-3 filtro-card">
+                <h5>Marca</h5>
+                <div id="filtro-marca"></div>
+                <h5>Tipo de Producto</h5>
+                <div id="filtro-tipo"></div>
+                <button class="btn btn-primary mt-3 w-100" onclick="aplicarFiltros()">Aplicar Filtros</button>
+            </div>
+        </div>
+
+        <!-- Cards de Productos -->
+        <div class="col-md-9">
+            <div class="row" id="productos-container"></div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

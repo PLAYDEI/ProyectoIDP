@@ -1,0 +1,202 @@
+/* -- VARIANTES DE COLOR -- */
+:root {
+    --color-de-fondo: #F1EFEC;
+    --color-fondo-navbar: #444444;
+    --color-elementos-navbar: #F1EFEC;
+    --color-hover-elementos-navbar: #FFCC00;
+    --brillo-hover-elementos-navbar: rgba(255, 204, 0, 0.5);
+}
+
+/*  ##########################################  */
+
+/* --  CONFIGURACION PAGINA -- */
+
+/* ## AJUSTE CUERPO PAGINA ## */
+body {
+    background-color: var(--color-de-fondo);
+}
+
+
+/* ## AJUSTE BARRA DE NAVEGACION ## */
+.navbar {
+    background-color: var(--color-fondo-navbar);
+    border-radius: 0px 0px 15px 15px; /* Redondea solo las esquinas inferiores */
+    padding: 10px 20px;
+    margin: 0 auto; /* Centra el navbar */
+    width: 100%; /* Ajusta el ancho */
+}
+
+/* Color de los enlaces del navbar */
+.navbar-nav .nav-link {
+    color: var(--color-elementos-navbar) !important; /* Color del texto */
+    font-weight: bold; /* Hace que el texto sea más grueso */
+    transition: color 0.3s ease-in-out; /* Suaviza la transición del color */
+}
+
+/* Estilos para los íconos (carrito y engranaje) */
+.navbar-icons {
+    color: var(--color-elementos-navbar) !important; /* Color inicial */
+    font-size: 1.5rem; /* Ajusta el tamaño de los íconos */
+    transition: color 0.3s ease-in-out; /* Suaviza la transición */
+}
+
+/* Hover texto */
+.navbar-nav .nav-link:hover {
+    color: var(--color-hover-elementos-navbar) !important;
+}
+
+/* Hover íconos */
+.navbar-icons:hover {
+    color: var(--color-hover-elementos-navbar) !important;
+}
+
+
+/* ## AJUSTE BARRA DE BUSQUEDA ## */
+.search-bar {
+    width: 50%; /* Ajusta este valor según el tamaño que desees */
+}
+
+.input-group .form-control {
+    border-radius: 20px; /* Redondea los bordes */
+}
+
+.input-group .btn {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+}
+
+/* Cambiar color de fondo de la barra de búsqueda */
+.search-bar .form-control {
+    background-color: var(--color-elementos-navbar);
+    color: #333; /* Color del texto */
+    border: 1px solid #ccc; /* Borde opcional */
+    border-radius: 20px; /* Bordes redondeados */
+    padding: 8px 15px; /* Ajuste de padding */
+}
+
+/* Cambiar color de fondo cuando el input está enfocado */
+.search-bar .form-control:focus,
+.search-bar .form-control:hover {
+    background-color: var(--color-elementos-navbar);
+    border-color: var(--color-hover-elementos-navbar); 
+    box-shadow: 0 0 10px var(--brillo-hover-elementos-navbar); /* Efecto de brillo */
+}
+
+/* Cambiar color de fondo del botón con la lupa */
+.search-bar .btn {
+    background-color: var(--color-elementos-navbar); /* Color de fondo del botón */
+    border-color: #ccc;
+    color: #333; /* Color del icono */
+}
+
+/* Cambiar color de fondo del botón al pasar el mouse */
+.search-bar .btn:hover {
+    background-color: #dfddda; /* Un tono más oscuro */
+    border-color: var(--color-hover-elementos-navbar);
+    box-shadow: 0 0 10px var(--brillo-hover-elementos-navbar); /* Efecto de brillo */
+}
+
+
+/* ## AJUSTE CARDS PRODUCTOS ## */
+.producto-card {
+    height: 300px;
+    width: 190px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    overflow: hidden;
+    transition: transform 0.2s ease-in-out;
+    cursor: pointer;
+    padding: 10px;
+    margin: 10px; /* Añadir margen uniforme */
+}
+
+/* Contenedor para alinear las cards correctamente */
+#productos-container {
+    display: flex;
+    flex-wrap: wrap; /* Permite que las cards pasen a la siguiente línea */
+    justify-content: space-evenly;
+    gap: 15px; /* Espacio uniforme entre las cards */
+}
+
+.producto-card:hover {
+    transform: scale(1.05);
+}
+
+.producto-img-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 140px;
+    overflow: hidden;
+}
+
+.producto-img {
+    max-height: 100%;
+    max-width: 100%;
+    object-fit: contain;
+}
+
+.card-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 10px;
+}
+
+.card-title {
+    font-size: 0.8rem;
+    text-align: left;
+    max-width: 100%;
+    display: -webkit-box;
+    line-clamp: 2; /* Sigue limitando a 2 líneas */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    line-height: 1.3em; /* Espaciado entre líneas más compacto */
+    height: 2.6em; /* Ajuste fino para que entren más caracteres */
+    word-break: break-word;
+}
+
+.precio {
+    font-size: 1.6rem;
+    font-weight: bold;
+    color: #007bff;
+    text-align: left;
+}
+
+.agregar-carrito {
+    font-size: 1rem;  /* Reduce el tamaño del texto */
+    padding: 5px 10px;   /* Reduce el padding */
+    width: 100%;        /* Hace que el botón se ajuste al contenido */
+}
+
+
+/* ## AJUSTE CARD FILTROS PRODUCTOS ## */
+.filtro-card {
+    width: 180px; /* Ajusta el ancho */
+    padding: 10px;
+    margin-top: 10px;
+}
+
+.filtro-card label {
+    font-size: 0.8rem; /* Ajusta el tamaño de los labels */
+}
+
+.filtro-card h4 { 
+    font-size: 1rem;  /* Reduce tamaño del título "Filtrar por:" */
+    text-justify: left;
+}
+
+.filtro-card h5 { 
+    font-size: 0.9rem;  /* Reduce tamaño de las categorías */
+    font-weight: 600;
+}
+
+.filtro-card button { 
+    font-size: 0.8rem;  /* Reduce tamaño del botón */
+    padding: 5px 10px;  /* Reduce el padding del botón */
+}

@@ -1,0 +1,41 @@
+# Ignorar el entorno virtual
+venv/
+env/
+.Venv/
+.VENV/
+ENV/
+ENV.bak/
+
+# Archivos de caché de Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.log
+
+# Archivos de configuración de editores
+.vscode/
+.idea/
+*.sublime-workspace
+*.sublime-project
+
+# Dependencias de Python
+*.egg-info/
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Configuración del sistema operativo
+.DS_Store  # macOS
+Thumbs.db  # Windows
+
+# Archivos de la base de datos (si usas SQLite)
+db.sqlite3
+*.sqlite3
+
+# Archivos de credenciales o configuraciones locales
+.env
+config/settings_local.py  # Si tienes configuraciones locales separadas
+
+# Archivos de compilación
+dist/
+build/
