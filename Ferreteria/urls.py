@@ -27,6 +27,7 @@ urlpatterns = [
 
     # Vistas generales
     path('', index, name='inicio'),
+    path('carrito/', carrito, name='carrito'),
 
     # API de productos
     path('api/productos/', lista_productos, name='api_productos'),

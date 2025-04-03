@@ -1,5 +1,6 @@
 <!-- Se extiende la base.html -->
 {% extends 'base.html'%}
+{% load static %}
 
 <!-- Contenido de la pagina wjjj -->
 {% block content %}
@@ -24,4 +25,8 @@
     </div>
 </div>
 
+{% endblock %}
+
+{% block scripts %}
+    <script src="{% static 'js/productos.js' %}"></script>
 {% endblock %}

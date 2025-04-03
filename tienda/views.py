@@ -4,7 +4,10 @@ from .models import Producto
 
 # Vistas generales
 def index(request):
-    return render(request, 'index.html', {'active_page': 'inicio'})
+    return render(request, 'index.html')
+
+def carrito(request):
+    return render(request, 'carrito.html')
 
 # API de productos
 def lista_productos(request):
