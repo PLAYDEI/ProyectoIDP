@@ -29,7 +29,7 @@ document.addEventListener('DOMContentLoaded', () => {
         
         card.innerHTML = `
             <div class="d-flex align-items-center">
-                <img src="/media/${item.foto}" class="me-3" style="width: 80px;">
+                <img src="${item.foto}" class="me-3" style="width: 80px;">
                 <div class="flex-grow-1">
                     <h5>${item.nombre}</h5>
                     <p>${formatearPrecio(item.precio)}</p>
@@ -44,6 +44,15 @@ document.addEventListener('DOMContentLoaded', () => {
         `;
         return card;
     }
+
+    function formatearPrecio(precio) {
+        const formatter = new Intl.NumberFormat('es-CL', {
+            style: 'currency',
+            currency: 'CLP'
+        });
+        return formatter.format(precio);
+    }
+    
     
     carritoContainer.addEventListener('click', event => {
         const id = event.target.dataset.id;

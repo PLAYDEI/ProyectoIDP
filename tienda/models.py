@@ -27,6 +27,3 @@ class Producto(models.Model):
 
     def __str__(self):
         return f"{self.nombre} - {self.marca}"
-
-    def formato_precio(self):
-        return f"${self.precio:,}".replace(",", ".")

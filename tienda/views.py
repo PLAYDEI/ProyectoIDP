@@ -18,7 +18,7 @@ def lista_productos(request):
             "nombre": p.nombre,
             "tipo_producto": p.tipo_producto,
             "marca": p.marca,
-            "precio": p.formato_precio(),
+            "precio": p.precio,
             "foto": p.foto.url if p.foto else None
         }
         for p in productos
