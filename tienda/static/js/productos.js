@@ -32,7 +32,7 @@ function mostrarProductos(lista) {
         const card = document.createElement("div");
         card.classList.add("col-md-2", "mb-4");
 
-        let nombreCorto = producto.nombre.length > 52 ? producto.nombre.substring(0, 52) + "..." : producto.nombre;
+        let nombreCorto = producto.nombre.length > 42 ? producto.nombre.substring(0, 42) + "..." : producto.nombre;
 
         card.innerHTML = `
             <div class="card producto-card" title="${producto.nombre}">
@@ -108,7 +108,6 @@ function aplicarFiltros() {
     mostrarProductos(productosFiltrados);
 }
 
-// Nueva función para resetear filtros
 function resetearFiltros() {
     document.querySelectorAll(".filtro-marca:checked, .filtro-tipo:checked").forEach(input => {
         input.checked = false;
