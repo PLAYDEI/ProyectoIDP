@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Pago Exitoso</title>
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        background-color: #F1EFEC;
+      }
+      .card {
+        max-width: 500px;
+        margin: 100px auto;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      }
+      .card-header {
+        background-color: #6f42c1;
+        color: #fff;
+        font-weight: bold;
+        text-align: center;
+        font-size: 1.25rem;
+      }
+      .btn-custom {
+        background-color: #6f42c1;
+        color: #fff;
+        border: none;
+      }
+      .btn-custom:hover {
+        background-color: #5a379f;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="card">
+      <div class="card-header">Transbank</div>
+      <div class="card-body">
+        <h5 class="card-title">¡Pago realizado con éxito!</h5>
+        <p class="card-text">Token de la transacción: {{ token }}</p>
+        <a href="/" class="btn btn-custom">Volver a la tienda</a>
+      </div>
+    </div>
+    
+    <!-- Script para limpiar el carrito -->
+    <script>
+      // Limpiar el carrito almacenado en localStorage
+      localStorage.removeItem("carrito");
+      localStorage.removeItem("cantidadProductos"); // Si lo usas para el badge
+    </script>
+    
+    <!-- Bootstrap Bundle JS -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+    ></script>
+  </body>
+</html>

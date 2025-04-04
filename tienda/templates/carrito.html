@@ -19,7 +19,7 @@
                 <div class="card-body">
                     <h5 class="card-title">Resumen de Compra</h5>
                     <p>Total: <span id="total-amount">0</span></p>
-                    <button id="comprar-btn" class="btn btn-success w-100 mt-3">Finalizar Compra</button>
+                    <button id="btn-pagar" class="btn btn-success w-100 mt-3">Finalizar Compra</button>
                 </div>
             </div>
         </div>
@@ -29,4 +29,69 @@
 
 {% block scripts %}
     <script src="{% static 'js/carrito.js' %}"></script>
+    <script>
+        // Función para obtener la cookie del CSRF token (requerido para Django)
+        function getCookie(name) {
+            let cookieValue = null;
+            if (document.cookie && document.cookie !== "") {
+                const cookies = document.cookie.split(";");
+                for (let i = 0; i < cookies.length; i++) {
+                    const cookie = cookies[i].trim();
+                    // La cookie se encuentra si empieza con el nombre requerido
+                    if (cookie.substring(0, name.length + 1) === (name + "=")) {
+                        cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                        break;
+                    }
+                }
+            }
+            return cookieValue;
+        }
+        
+        // Conectar el botón de finalizar compra
+        document.getElementById("btn-pagar").addEventListener("click", function () {
+            // Obtener el carrito completo desde localStorage
+            const carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+        
+            if (carrito.length === 0) {
+                alert("Tu carrito está vacío. Agrega productos antes de finalizar la compra.");
+                return;
+            }
+        
+            // Enviar el carrito al backend para iniciar el pago
+            fetch("/iniciar_pago/", {
+                method: "POST",
+                headers: { 
+                    "Content-Type": "application/json",
+                    "X-CSRFToken": getCookie("csrftoken")  // Importante para Django
+                },
+                body: JSON.stringify({ productos: carrito })
+            })
+            .then(response => response.json())
+            .then(data => {
+                // Se espera que el backend responda con { token, url_webpay }
+                if (data.token && data.url_webpay) {
+                    // Crear formulario oculto para redirigir a Webpay
+                    const form = document.createElement("form");
+                    form.method = "POST";
+                    form.action = data.url_webpay;
+        
+                    const tokenInput = document.createElement("input");
+                    tokenInput.type = "hidden";
+                    tokenInput.name = "token_ws";
+                    tokenInput.value = data.token;
+                    form.appendChild(tokenInput);
+        
+                    document.body.appendChild(form);
+                    form.submit();
+                } else {
+                    console.error("Respuesta incorrecta del servidor:", data);
+                    alert("Error en la respuesta del servidor. Intenta nuevamente.");
+                }
+            })
+            .catch((error) => {
+                console.error(error);
+                alert("Ocurrió un error al procesar el pago.");
+            });
+        });
+    </script>
 {% endblock %}

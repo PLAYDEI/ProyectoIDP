@@ -29,9 +29,9 @@ SECRET_KEY = 'django-insecure-l!8k7bdy96q)kb!3w1m9$^kr$s!kdiooixpwz1p-_v^k7@jlrh
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
-
 STATICFILES_DIRS=['./tienda/static']
+
+ALLOWED_HOSTS = ['*']
 
 # Application definition
 
@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     # Librerias
     'crispy_forms',
     'crispy_bootstrap5',
+    'rest_framework',
 
     # Aplicaciones propias
     'tienda'

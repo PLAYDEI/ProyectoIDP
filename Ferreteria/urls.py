@@ -31,6 +31,10 @@ urlpatterns = [
 
     # API de productos
     path('api/productos/', lista_productos, name='api_productos'),
+
+    # Transbank
+    path("iniciar_pago/", iniciar_pago, name="iniciar_pago"),  # Ruta para procesar el pago con Webpay
+    path("pago_exitoso/", lambda req: render(req, "pago_exitoso.html")),  # Vista simple para mostrar éxito del pago
  
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 
