@@ -10,13 +10,22 @@ from transbank.error.transbank_error import TransbankError  # Para capturar erro
 
 # Vistas generales
 def index(request):
-    return render(request, 'index.html')
+    productos_qs = Producto.objects.filter(producto_popular=True)  # <–– campo correcto
+    productos = list(
+        productos_qs.values('id', 'nombre', 'precio', 'foto')
+    )
+    return render(request, 'index.html', {
+        'producto_popular': json.dumps(productos)
+    })
 
 def carrito(request):
     return render(request, 'carrito.html')
 
 def productos(request):
     return render(request, 'productos.html')
+
+def ubicacion(request):
+    return render(request, 'ubicacion.html')
 
 # API de productos
 def lista_productos(request):
