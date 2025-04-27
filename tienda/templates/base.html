@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Titulo pagina-->
-    <title>Fierro Rico</title>
+    <title>FERRAMAX</title>
     <!-- Icono pagina -->
     <link rel="icon" type="image/x-icon" href="{% static 'favicon.ico' %}">
     <!-- Importación bootstrap -->
@@ -24,20 +24,30 @@
     
 </head>
 <body>
+
+    <style>
+        body {
+            background-image: url("/static/images/dark_cobblestone.png");
+            background-repeat: repeat;       /* Empalma la imagen en X e Y */
+            background-position: top left;   /* Opcional: ajustar el punto de inicio */
+            background-attachment: fixed;    /* Opcional: que no se mueva al hacer scroll */
+            background-size: 32px 32px;
+        }
+    </style>
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg">
         <div class="container-fluid">
             <!-- Logo + Botones de navegación -->
             <div class="d-flex align-items-center">
                 <a class="navbar-brand" href="{% url 'inicio'%}">
-                    <img src="{% static 'img/logo.png' %}" alt="Logo" width="50" height="50">
+                    <img src="{% static 'images/ferremax_logo.png' %}" alt="Logo" width="70" height="70">
                 </a>
                 <ul class="navbar-nav ms-2">
                     <li class="nav-item">
                         <a class="nav-link" href="{% url 'inicio'%}">Inicio</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Productos</a>
+                        <a class="nav-link" href="{% url 'productos'%}">Productos</a>
                     </li>
                 </ul>
             </div>

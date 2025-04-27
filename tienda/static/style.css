@@ -1,7 +1,7 @@
 /* -- VARIANTES DE COLOR -- */
 :root {
-    --color-de-fondo: #F1EFEC;
-    --color-fondo-navbar: #444444;
+    --color-de-fondo-card: #222222;
+    --color-fondo-navbar: #101010;
     --color-elementos-navbar: #F1EFEC;
     --color-hover-elementos-navbar: #FFCC00;
     --brillo-hover-elementos-navbar: rgba(255, 204, 0, 0.5);
@@ -11,9 +11,19 @@
 
 /* --  CONFIGURACION PAGINA -- */
 
-/* ## AJUSTE CUERPO PAGINA ## */
-body {
-    background-color: var(--color-de-fondo);
+/* ## AJUSTE CARTAS PRODUCTOS ## */
+.card {
+    background-color: var(--color-de-fondo-card);
+    color: white;
+}
+
+.producto-img-container {
+    background-color: white;
+    border-radius: 5px;
+}
+
+.me-3 {
+    border-radius: 5px;
 }
 
 

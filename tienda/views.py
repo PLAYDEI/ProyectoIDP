@@ -15,6 +15,9 @@ def index(request):
 def carrito(request):
     return render(request, 'carrito.html')
 
+def productos(request):
+    return render(request, 'productos.html')
+
 # API de productos
 def lista_productos(request):
     productos = Producto.objects.all()
