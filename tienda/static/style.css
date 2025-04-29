@@ -9,8 +9,6 @@
 
 /*  ##########################################  */
 
-/* --  CONFIGURACION PAGINA -- */
-
 /* ## AJUSTE CARTAS PRODUCTOS ## */
 .card {
     background-color: var(--color-de-fondo-card);
@@ -34,6 +32,12 @@
     padding: 10px 20px;
     margin: 0 auto; /* Centra el navbar */
     width: 100%; /* Ajusta el ancho */
+}
+
+/* Active: mismo estilo que hover */
+.navbar .nav-link.active,
+.navbar .nav-item.active .nav-link {
+  color: #FFCC00 !important;  /* mismo color que hover */ 
 }
 
 /* Color de los enlaces del navbar */

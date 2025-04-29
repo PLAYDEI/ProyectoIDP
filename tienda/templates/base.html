@@ -24,7 +24,6 @@
     
 </head>
 <body>
-
     <style>
         body {
             background-image: url("/static/images/dark_cobblestone.png");
@@ -35,7 +34,7 @@
         }
     </style>
     <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg">
+    <nav class="navbar navbar-expand-lg sticky-top">
         <div class="container-fluid">
             <!-- Logo + Botones de navegación -->
             <div class="d-flex align-items-center">
@@ -44,15 +43,15 @@
                 </a>
                 <ul class="navbar-nav ms-2">
                     <li class="nav-item">
-                        <a class="nav-link" href="{% url 'inicio'%}">Inicio</a>
+                      <a class="nav-link" href="{% url 'inicio' %}">Inicio</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{% url 'productos'%}">Productos</a>
+                      <a class="nav-link" href="{% url 'productos' %}">Productos</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{% url 'ubicacion'%}">Ubicación</a>
+                      <a class="nav-link" href="{% url 'ubicacion' %}">Ubicación</a>
                     </li>
-                </ul>
+                  </ul>
             </div>
 
             <!-- Barra de búsqueda -->
@@ -77,8 +76,8 @@
                         0
                     </span>
                 </a>
-                <a href="#" class="navbar-icons">
-                    <i class="bi bi-gear"></i>
+                <a style="cursor: pointer;" class="navbar-icons">
+                    <i class="bi bi-person-circle" data-bs-toggle="modal" data-bs-target="#modalLoginRegister"></i>
                 </a>
             </div>
         </div>
