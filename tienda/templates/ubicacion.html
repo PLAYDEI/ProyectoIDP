@@ -1,0 +1,301 @@
+<!-- Se extiende la base.html -->
+{% extends 'base.html'%}
+{% load static %}
+
+<!-- Contenido de la pagina wjjj -->
+{% block content %}
+<div class="container my-5 text-center">
+    <h2 style="color: #F1EFEC;">Selecciona tu ciudad</h2>
+    <div class="row mt-4 justify-content-center gx-3 gy-3">
+        
+        <!-- Card Santiago -->
+        <div class="col-6 col-md-3">
+            <div class="card ciudad-card" data-bs-toggle="modal" data-bs-target="#modalSantiago">
+                <img src="{% static 'images/mapa_santiago.png' %}" class="card-img-top rounded" alt="Santiago">
+                <div class="card-body">
+                    <h5 class="card-title">Santiago</h5>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card Viña del Mar -->
+        <div class="col-6 col-md-3">
+            <div class="card ciudad-card" data-bs-toggle="modal" data-bs-target="#modalVinaDelMar">
+                <img src="{% static 'images/mapa_viña_del_mar.png' %}" class="card-img-top rounded" alt="Viña del Mar">
+                <div class="card-body">
+                    <h5 class="card-title">Viña del Mar</h5>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card Temuco -->
+        <div class="col-6 col-md-3">
+            <div class="card ciudad-card" data-bs-toggle="modal" data-bs-target="#modalTemuco">
+                <img src="{% static 'images/mapa_temuco.png' %}" class="card-img-top rounded" alt="Temuco">
+                <div class="card-body">
+                    <h5 class="card-title">Temuco</h5>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card Copiapó -->
+        <div class="col-6 col-md-3">
+            <div class="card ciudad-card" data-bs-toggle="modal" data-bs-target="#modalCopiapo">
+                <img src="{% static 'images/mapa_copiapo.png' %}" class="card-img-top rounded" alt="Copiapó">
+                <div class="card-body">
+                    <h5 class="card-title">Copiapó</h5>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- Modal para Viña del Mar -->
+<div class="modal fade" id="modalVinaDelMar" tabindex="-1" aria-labelledby="modalVinaDelMarLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modalVinaDelMarLabel">Sucursal Viña del Mar</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+            </div>
+            <div class="card-body p-0">
+                <!-- Iframe de Google Maps -->
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6690.454003716192!2d-71.56260899606005!3d-33.024149475334156!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9689dde209c1e881%3A0xe2b5101d3eaf5d09!2sFerreter%C3%ADa%20la%20Sierra!5e0!3m2!1ses!2scl!4v1745884588386!5m2!1ses!2scl"
+                    width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy">
+                </iframe>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal para Temuco -->
+<div class="modal fade" id="modalTemuco" tabindex="-1" aria-labelledby="modalTemucoLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modalTemucoLabel">Sucursal Temuco</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+            </div>
+            <div class="card-body p-0">
+                <!-- Iframe de Google Maps -->
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d777.9823370887422!2d-72.63165801121251!3d-38.74238347514438!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9614d5d623653d4f%3A0x2a742200eb78f7e9!2sTecno%20Ferreter%C3%ADa!5e0!3m2!1ses-419!2scl!4v1745860615829!5m2!1ses-419!2scl"
+                    width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy">
+                </iframe>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal Copiapó -->
+<div class="modal fade" id="modalCopiapo" tabindex="-1" aria-labelledby="modalCopiapoLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 id="modalCopiapoLabel" class="modal-title">Sucursal Copiapó</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body p-0">
+                <!-- Iframe con la ubicación real de Copiapó -->
+                <iframe 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d241.48964222037736!2d-70.33191714861388!3d-27.37101770549474!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x96980477601e002b%3A0x2a272c613f646914!2sBarraca%20de%20fierro%20y%20pernos%20IDINI!5e0!3m2!1ses-419!2scl!4v1745862486817!5m2!1ses-419!2scl"
+                    width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy">
+                </iframe>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal Santiago con Comunas -->
+<div class="modal fade" id="modalSantiago" tabindex="-1" aria-labelledby="modalSantiagoLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modalSantiagoLabel">Sucursales Región Metropolitana</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+            </div>
+            <div class="modal-body">
+                <div class="container">
+                    <div class="row gx-3 gy-3 justify-content-center">
+        
+                        <!-- San Bernardo -->
+                        <div class="col-6 col-md-3">
+                            <div class="card comuna-card" data-bs-toggle="modal" data-bs-target="#modalSanBernardo">
+                                <img src="{% static 'images/mapa_san_bernardo.png' %}" class="card-img-top rounded" alt="San Bernardo">
+                                <div class="card-body text-center">
+                                    <h5 class="card-title">San Bernardo</h5>
+                                </div>
+                            </div>
+                        </div>
+            
+                        <!-- Peñalolén -->
+                        <div class="col-6 col-md-3">
+                            <div class="card comuna-card" data-bs-toggle="modal" data-bs-target="#modalPenalolen">
+                                <img src="{% static 'images/mapa_peñalolen.png' %}" class="card-img-top rounded" alt="Peñalolén">
+                                <div class="card-body text-center">
+                                    <h5 class="card-title">Peñalolén</h5>
+                                </div>
+                            </div>
+                        </div>
+            
+                        <!-- Maipú -->
+                        <div class="col-6 col-md-3">
+                            <div class="card comuna-card" data-bs-toggle="modal" data-bs-target="#modalMaipu">
+                                <img src="{% static 'images/mapa_maipu.png' %}" class="card-img-top rounded" alt="Maipú">
+                                <div class="card-body text-center">
+                                    <h5 class="card-title">Maipú</h5>
+                                </div>
+                            </div>
+                        </div>
+            
+                        <!-- Las Condes -->
+                        <div class="col-6 col-md-3">
+                            <div class="card comuna-card" data-bs-toggle="modal" data-bs-target="#modalLasCondes">
+                                <img src="{% static 'images/mapa_las_condes.png' %}" class="card-img-top rounded" alt="Las Condes">
+                                <div class="card-body text-center">
+                                    <h5 class="card-title">Las Condes</h5>
+                                </div>
+                            </div>
+                        </div>
+        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal San Bernardo -->
+<div class="modal fade" id="modalSanBernardo" tabindex="-1" aria-labelledby="modalSanBernardoLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modalSanBernardoLabel">Sucursal San Bernardo</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body p-0">
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d13293.318965440078!2d-70.71914970874784!3d-33.596747919595714!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9662d92c4de0d9a9%3A0x648a032e804b51be!2sFERRETERIA%20RAMOS!5e0!3m2!1ses!2scl!4v1745881460876!5m2!1ses!2scl"
+                    width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy">
+                </iframe>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal Peñalolén -->
+<div class="modal fade" id="modalPenalolen" tabindex="-1" aria-labelledby="modalPenalolenLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modalPenalolenLabel">Sucursal Peñalolén</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body p-0">
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d539.2947293979475!2d-70.58158841744685!3d-33.50594361403683!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9662d04ebe676541%3A0xb4848263d86a6804!2sSoc%20Comercial%20Fepal%20Limitada!5e0!3m2!1ses!2scl!4v1745882561200!5m2!1ses!2scl"
+                    width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy">
+                </iframe>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal Maipú -->
+<div class="modal fade" id="modalMaipu" tabindex="-1" aria-labelledby="modalMaipuLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modalMaipuLabel">Sucursal Maipú</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body p-0">
+                <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d75254.89023684911!2d-70.85725386337485!3d-33.53186330309214!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9662dd3185d10dc9%3A0x8469279d9778fb6a!2zRmVycmV0ZXLDrWEgUMOtbyBJ!5e0!3m2!1ses!2scl!4v1745884013332!5m2!1ses!2scl"
+                    width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy">
+                </iframe>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal Las Condes -->
+<div class="modal fade" id="modalLasCondes" tabindex="-1" aria-labelledby="modalLasCondesLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modalLasCondesLabel">Sucursal Las Condes</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body p-0">
+                <iframe
+                src= "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d26643.749090175697!2d-70.58869112828955!3d-33.41102449080322!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9662cec2e5416da9%3A0xb867455d7a40a78b!2zRmVycmV0ZXLDrWEgQmVsw6lu!5e0!3m2!1ses!2scl!4v1745884216258!5m2!1ses!2scl"
+                    width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy">
+                </iframe>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+
+{% block scripts %}
+<style>
+    .ciudad-card, .comuna-card {
+        cursor: pointer;
+        transition: transform .2s;
+    }
+    .ciudad-card:hover, .comuna-card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 4px 8px rgba(0,0,0,.1);
+    }
+
+    .ciudad-card, .comuna-card {
+        height: 350px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    /* Asegurarse que la imagen ocupe el espacio necesario */
+    .ciudad-card img, .comuna-card img {
+        height: 70%; 
+        object-fit: cover;
+    }
+
+    /* Agrandar el texto de la ciudad/comuna */
+    .ciudad-card .card-title, .comuna-card .card-title {
+        font-size: 1.5rem; 
+        color: #F1EFEC; 
+        font-weight: bold;
+    }
+
+    /* Cambiar el color de fondo de los modales */
+    .modal-content {
+        background-image: url("/static/images/dark_cobblestone.png");
+        background-repeat: repeat;       /* Empalma la imagen en X e Y */
+        background-position: top left;   /* Opcional: ajustar el punto de inicio */
+        background-attachment: fixed;    /* Opcional: que no se mueva al hacer scroll */
+        background-size: 32px 32px;
+    }
+
+    /* Cambiar el color de la cabecera de los modales */
+    .modal-header {
+        background-color: #101010;
+        color: #F1EFEC; /* Texto blanco */
+    }
+
+    /* Asegura que el título del modal también sea blanco */
+    .modal-header .modal-title {
+        color: #F1EFEC;
+    }
+
+    /* 4. Cambiar el color del botón de cierre (btn-close) */
+    .btn-close {
+        filter: invert(90%) sepia(5%) saturate(0%) hue-rotate(176deg) brightness(106%) contrast(106%);
+        opacity: 1; /* Para que sea totalmente visible */
+    }
+</style>
+{% endblock %}

@@ -29,7 +29,7 @@ urlpatterns = [
     path('', index, name='inicio'),
     path('carrito/', carrito, name='carrito'),
     path('productos/', productos, name='productos'),
-    path('ubicacion/', productos, name='ubicacion'),
+    path('ubicacion/', ubicacion, name='ubicacion'),
 
     # API de productos
     path('api/productos/', lista_productos, name='api_productos'),
