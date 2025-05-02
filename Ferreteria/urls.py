@@ -20,7 +20,6 @@ from tienda.views import *
 from django.conf import settings
 from django.conf.urls.static import static
 
-
 urlpatterns = [
     # Vista de admin
     path('admin/', admin.site.urls),
@@ -30,6 +29,11 @@ urlpatterns = [
     path('carrito/', carrito, name='carrito'),
     path('productos/', productos, name='productos'),
     path('ubicacion/', ubicacion, name='ubicacion'),
+    
+    #CRUD
+    path('admin/', admin.site.urls),
+    path('productos/', include('tienda.urls')),
+    path('catalogo/', productos, name='productos'),  
 
     # API de productos
     path('api/productos/', lista_productos, name='api_productos'),

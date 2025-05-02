@@ -1,7 +1,8 @@
 import json
-from django.shortcuts import render
+from django.shortcuts import render, redirect, get_object_or_404
 from django.http import JsonResponse
 from .models import Producto
+from .forms import ProductoForm
 from django.views.decorators.csrf import csrf_exempt  # Decorador para evitar errores CSRF en desarrollo
 from transbank.webpay.webpay_plus.transaction import Transaction, WebpayOptions  # SDK Transbank para transacciones
 from transbank.common.integration_type import IntegrationType  # Tipo de entorno (TEST o LIVE)
@@ -43,6 +44,39 @@ def lista_productos(request):
     ]
     return JsonResponse(productos_json, safe=False)
 
+# CRUD - LISTAR
+def gestionar_productos(request):
+    productos = Producto.objects.all()
+    return render(request, 'productos/gestionar.html', {'productos': productos})
+
+# CRUD - AGREGAR
+def agregar_producto(request):
+    if request.method == 'POST':
+        form = ProductoForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            return redirect('gestionar_productos')
+    else:
+        form = ProductoForm()
+    return render(request, 'productos/formulario.html', {'form': form, 'accion': 'Agregar'})
+
+# CRUD - EDITAR
+def editar_producto(request, pk):
+    producto = get_object_or_404(Producto, pk=pk)
+    if request.method == 'POST':
+        form = ProductoForm(request.POST, request.FILES, instance=producto)
+        if form.is_valid():
+            form.save()
+            return redirect('gestionar_productos')
+    else:
+        form = ProductoForm(instance=producto)
+    return render(request, 'productos/formulario.html', {'form': form, 'accion': 'Editar'})
+
+# CRUD - ELIMINAR
+def eliminar_producto(request, pk):
+    producto = get_object_or_404(Producto, pk=pk)
+    producto.delete()
+    return redirect('gestionar_productos')
 # Transbank
 @csrf_exempt
 def iniciar_pago(request):

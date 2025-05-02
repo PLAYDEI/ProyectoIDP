@@ -1,0 +1,30 @@
+{% load static %}
+{% load crispy_forms_tags %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Productos</title>
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+</head>
+<body class="container mt-4">
+
+    <h1>Lista de Productos</h1>
+    <a href="{% url 'agregar_producto' %}" class="btn btn-success mb-3">Agregar Producto</a>
+
+    <div class="row">
+        {% for producto in productos %}
+            <div class="col-md-4">
+                <div class="card mb-3">
+                    <img src="{{ producto.imagen.url }}" class="card-img-top" alt="{{ producto.nombre }}">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ producto.nombre }}</h5>
+                        <p class="card-text">${{ producto.precio }}</p>
+                        <a href="{% url 'editar_producto' producto.pk %}" class="btn btn-primary btn-sm">Editar</a>
+                        <a href="{% url 'eliminar_producto' producto.pk %}" class="btn btn-danger btn-sm" onclick="return confirm('¿Estás seguro?');">Eliminar</a>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</body>
+</html>
