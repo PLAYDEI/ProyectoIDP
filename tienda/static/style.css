@@ -214,3 +214,21 @@
     font-size: 0.8rem;  /* Reduce tamaño del botón */
     padding: 5px 10px;  /* Reduce el padding del botón */
 }
+
+form font,
+form small,
+form .form-text,
+form .helptext,
+form .help-block {
+    color: white !important;
+}
+.form-control {
+    background-color: #1e1e1e;
+    color: white;
+    border: 1px solid #555;
+}
+
+/* Texto del placeholder también blanco */
+.form-control::placeholder {
+    color: #ccc;
+}

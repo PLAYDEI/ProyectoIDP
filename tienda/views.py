@@ -8,6 +8,10 @@ from transbank.webpay.webpay_plus.transaction import Transaction, WebpayOptions 
 from transbank.common.integration_type import IntegrationType  # Tipo de entorno (TEST o LIVE)
 from transbank.common.options import WebpayOptions  
 from transbank.error.transbank_error import TransbankError  # Para capturar errores del SDK
+from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth import login
+from django.shortcuts import render, redirect
+from django.contrib.auth.decorators import login_required
 
 # Vistas generales
 def index(request):
@@ -45,6 +49,7 @@ def lista_productos(request):
     return JsonResponse(productos_json, safe=False)
 
 # CRUD - LISTAR
+@login_required
 def gestionar_productos(request):
     productos = Producto.objects.all()
     return render(request, 'productos/gestionar.html', {'productos': productos})
@@ -119,3 +124,14 @@ def iniciar_pago(request):
             return JsonResponse({"error": e.message}, status=500)
 
     return JsonResponse({"error": "Método no permitido"}, status=405)
+
+def registro_usuario(request):
+    if request.method == 'POST':
+        form = UserCreationForm(request.POST)
+        if form.is_valid():
+            usuario = form.save()
+            login(request, usuario)
+            return redirect('inicio')  # Redirige a la página principal
+    else:
+        form = UserCreationForm()
+    return render(request, 'usuarios/registro.html', {'form': form})
