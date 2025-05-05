@@ -228,7 +228,7 @@ form .help-block {
     border: 1px solid #555;
 }
 
-/* Texto del placeholder también blanco */
+/* Texto del placeholder también blancoo */
 .form-control::placeholder {
     color: #ccc;
 }
