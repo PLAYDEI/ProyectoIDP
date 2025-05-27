@@ -83,8 +83,15 @@
             <ul class="dropdown-menu dropdown-menu-end">
                 <li><span class="dropdown-item-text">{{ user.username }}</span></li>
                 <li><a class="dropdown-item" href="{% url 'gestionar_productos' %}">Gestionar</a></li>
-                <li><a class="dropdown-item" href="{% url 'logout' %}">Cerrar sesión</a></li>
-            </ul>
+                <li>
+                    <form action="{% url 'logout' %}" method="post" style="display: inline;">
+                        {% csrf_token %}
+                        <button type="submit" class="dropdown-item" >
+                            Cerrar sesión
+                        </button>
+                    </form>
+                </li>
+            </ul>   
         </div>
     {% else %}
         <a href="{% url 'login' %}" class="navbar-icons text-light">
