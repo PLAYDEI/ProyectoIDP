@@ -31,7 +31,6 @@ urlpatterns = [
     path('ubicacion/', ubicacion, name='ubicacion'),
     
     #CRUD
-    path('admin/', admin.site.urls),
     path('productos/', include('tienda.urls')),
     path('catalogo/', productos, name='productos'),  
 
